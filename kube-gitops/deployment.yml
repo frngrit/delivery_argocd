@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pun-api
-        image: webratio/httpd-with-curl:2.4.29
+        image: ghcr.io/frngrit/package-deliver:dac295f7516df38506b5c1367e3db4c2623b6a2d
         imagePullPolicy: Always
         ports:
         - containerPort: 80

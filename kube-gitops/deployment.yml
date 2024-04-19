@@ -10,7 +10,9 @@ spec:
   resources:
     requests:
       storage: 1Gi  # Adjust the size as per your requirement
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -57,6 +59,7 @@ spec:
             claimName: mysqldb
 
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -85,5 +88,35 @@ spec:
         env:
         - name: DATABASE_HOST
           value: db
+      imagePullSecrets:
+        - name: frngrit-github
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: devops-training
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ghcr.io/frngrit/package-deliver/frontend:bb82c4670c5f7d0b1834d4f2afb0465452cc0d16
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+        ports:
+        - containerPort: 80
       imagePullSecrets:
         - name: frngrit-github

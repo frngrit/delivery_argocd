@@ -25,34 +25,34 @@ spec:
     metadata:
       labels:
         app: db
-  spec:
-    containers:
-      - name: mysql
-        image: mysql
-        env:
-          - name: MYSQL_USER
-            value: user
-          - name: MYSQL_PASSWORD
-            value: password
-          - name: MYSQL_ROOT_PASSWORD
-            value: password
-          - name: MYSQL_DATABASE
-            value: package_db
-          - name: DATABASE_PORT
-            value: "3306"
-        ports:
-          - containerPort: 3306
-        resources:
-          limits:
-            cpu: '1'
-            memory: 512Mi
-        volumeMounts:
-          - mountPath: /var/lib/mysql
-            name: mysqldb
-    volumes:
-    - name: mysqldb
-      persistentVolumeClaim:
-        claimName: mysqldb
+    spec:
+      containers:
+        - name: mysql
+          image: mysql
+          env:
+            - name: MYSQL_USER
+              value: user
+            - name: MYSQL_PASSWORD
+              value: password
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+            - name: MYSQL_DATABASE
+              value: package_db
+            - name: DATABASE_PORT
+              value: "3306"
+          ports:
+            - containerPort: 3306
+          resources:
+            limits:
+              cpu: '1'
+              memory: 512Mi
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysqldb
+      volumes:
+      - name: mysqldb
+        persistentVolumeClaim:
+          claimName: mysqldb
 ---
 apiVersion: apps/v1
 kind: Deployment

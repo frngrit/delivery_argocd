@@ -17,6 +17,10 @@ spec:
       - name: pun-api
         image: ghcr.io/frngrit/package-deliver:dac295f7516df38506b5c1367e3db4c2623b6a2d
         imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
         ports:
         - containerPort: 80
         env:

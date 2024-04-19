@@ -39,6 +39,11 @@ spec:
     volumeMounts:
     - name: mysqldb
       mountPath: /var/lib/mysql
+      volumes:
+  - name: mysqldb
+    persistentVolumeClaim:
+      claimName: mysqldb
+
 ---
 apiVersion: apps/v1
 kind: Deployment

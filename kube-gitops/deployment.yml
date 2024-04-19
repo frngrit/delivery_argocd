@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:8
           env:
             - name: MYSQL_USER
               value: user

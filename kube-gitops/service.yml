@@ -11,3 +11,19 @@ spec:
   selector:
     app: api
   type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  namespace: devops-training
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+  selector:
+    app: db
+  type: LoadBalancer

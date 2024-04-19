@@ -28,8 +28,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          command: 
-            - "mysqld"
+          args: 
             - "--default-authentication-plugin=caching_sha2_password"
           image: mysql:8
           env:

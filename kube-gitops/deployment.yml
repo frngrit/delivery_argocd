@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pun-api
-        image: httpd
+        image: webratio/httpd-with-curl:2.4.29
         imagePullPolicy: Always
         ports:
         - containerPort: 80

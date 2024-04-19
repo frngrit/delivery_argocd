@@ -22,8 +22,6 @@ spec:
   containers:
     - name: mysql
       image: mysql
-      command:
-        - '--default-authentication-plugin=caching_sha2_password'
       env:
         - name: MYSQL_USER
           value: user

@@ -29,3 +29,5 @@ spec:
             configMapKeyRef:
               name: app-config
               key: api.service.port
+      imagePullSecrets:
+        - name: frngrit-github

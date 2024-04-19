@@ -31,3 +31,33 @@ spec:
               key: api.service.port
       imagePullSecrets:
         - name: frngrit-github
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db
+  namespace: devops-training
+spec:
+  containers:
+  - name: mysql
+    resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+    image: mysql
+    command: ["--default-authentication-plugin=caching_sha2_password"]
+    env:
+    - name: MYSQL_USER
+      value: user
+    - name: MYSQL_PASSWORD
+      value: password
+    - name: MYSQL_ROOT_PASSWORD
+      value: password
+    - name: MYSQL_DATABASE
+      value: package_db
+    ports:
+    - containerPort: 3306
+    volumeMounts:
+    - name: mysqldb
+      mountPath: /var/lib/mysql
+---

@@ -31,6 +31,8 @@ spec:
           value: password
         - name: MYSQL_DATABASE
           value: package_db
+        - name: DATABASE_PORT
+          value: "3306"
       ports:
         - containerPort: 3306
       resources:

@@ -18,10 +18,10 @@ metadata:
     name: db
   name: db
   namespace: devops-training
-spec:
   selector:
     matchLabels:
       app: db
+spec:
   containers:
     - name: mysql
       image: mysql

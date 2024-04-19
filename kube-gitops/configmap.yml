@@ -4,4 +4,4 @@ metadata:
   name: app-config
   namespace: devops-training
 data:
-  api.service.port: "8080"
+  api.service.port: "80"

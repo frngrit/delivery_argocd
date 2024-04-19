@@ -14,36 +14,38 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  labels:
+    app.kubernetes.io/instance: delivery-app
   name: db
   namespace: devops-training
 spec:
   containers:
-  - name: mysql
-    resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-    image: mysql
-    command: ["--default-authentication-plugin=caching_sha2_password"]
-    env:
-    - name: MYSQL_USER
-      value: user
-    - name: MYSQL_PASSWORD
-      value: password
-    - name: MYSQL_ROOT_PASSWORD
-      value: password
-    - name: MYSQL_DATABASE
-      value: package_db
-    ports:
-    - containerPort: 3306
-    volumeMounts:
+    - name: mysql
+      image: mysql
+      command:
+        - '--default-authentication-plugin=caching_sha2_password'
+      env:
+        - name: MYSQL_USER
+          value: user
+        - name: MYSQL_PASSWORD
+          value: password
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: package_db
+      ports:
+        - containerPort: 3306
+      resources:
+        limits:
+          cpu: '1'
+          memory: 512Mi
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mysqldb
+  volumes:
     - name: mysqldb
-      mountPath: /var/lib/mysql
-      volumes:
-  - name: mysqldb
-    persistentVolumeClaim:
-      claimName: mysqldb
-
+      persistentVolumeClaim:
+        claimName: mysqldb
 ---
 apiVersion: apps/v1
 kind: Deployment

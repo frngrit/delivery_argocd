@@ -110,7 +110,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/frngrit/package-deliver/frontend:69a126b0c0fe39f787c3bba0ec9a34878a55a569
+        image: ghcr.io/frngrit/package-deliver/frontend:f56d6bacf286f274da777626208cf4ae8ea904fe
         imagePullPolicy: Always
         resources:
           limits:

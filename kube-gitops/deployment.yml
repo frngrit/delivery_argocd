@@ -50,9 +50,9 @@ spec:
             - mountPath: /var/lib/mysql
               name: mysqldb
       volumes:
-      - name: mysqldb
-        persistentVolumeClaim:
-          claimName: mysqldb
+        - name: mysqldb
+          persistentVolumeClaim:
+            claimName: mysqldb
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -31,7 +31,7 @@ spec:
       containers:
         - name: mysql
           args: 
-            - "--default-authentication-plugin=mysql_native_password"
+            - "--mysql-native-password=ON"
           image: mysql:8
           env:
             - name: MYSQL_USER

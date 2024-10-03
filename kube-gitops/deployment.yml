@@ -69,7 +69,7 @@ spec:
   selector:
     matchLabels:
       app: api
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:

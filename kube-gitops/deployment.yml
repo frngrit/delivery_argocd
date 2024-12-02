@@ -60,38 +60,38 @@
 
 # ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: api
-  namespace: devops-training
-spec:
-  selector:
-    matchLabels:
-      app: api
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: api
-    spec:
-      containers:
-      - name: pun-api
-        image: ghcr.io/frngrit/package-deliver/backend:3299e0a038783629d9bec381d60a58c352326559
-        imagePullPolicy: Always
-        resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-        ports:
-        - containerPort: 8081
-        env:
-        - name: DATABASE_HOST
-          value: db
-      imagePullSecrets:
-        - name: frngrit-github
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: api
+#   namespace: devops-training
+# spec:
+#   selector:
+#     matchLabels:
+#       app: api
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: api
+#     spec:
+#       containers:
+#       - name: pun-api
+#         image: ghcr.io/frngrit/package-deliver/backend:3299e0a038783629d9bec381d60a58c352326559
+#         imagePullPolicy: Always
+#         resources:
+#           limits:
+#             memory: 512Mi
+#             cpu: "1"
+#         ports:
+#         - containerPort: 8081
+#         env:
+#         - name: DATABASE_HOST
+#           value: db
+#       imagePullSecrets:
+#         - name: frngrit-github
 
----
+# ---
 
 apiVersion: apps/v1
 kind: Deployment

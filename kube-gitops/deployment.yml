@@ -102,7 +102,7 @@ spec:
   selector:
     matchLabels:
       app: frontend
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:

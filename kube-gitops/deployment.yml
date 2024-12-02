@@ -120,3 +120,4 @@ spec:
         - containerPort: 80
       imagePullSecrets:
         - name: frngrit-github
+

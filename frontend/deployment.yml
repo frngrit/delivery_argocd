@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: devops-training
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ghcr.io/frngrit/package-deliver/frontend:a99632a5a6988f6cffe7fa2a212d39ff8556cd4d
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: frngrit-github
+

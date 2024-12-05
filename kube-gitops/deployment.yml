@@ -77,7 +77,7 @@
 #     spec:
 #       containers:
 #       - name: pun-api
-#         image: ghcr.io/frngrit/package-deliver/backend:3c8e2a52e1bd028f88e5ebd5e30b4559e25335af
+#         image: ghcr.io/frngrit/package-deliver/backend:d018e3b0adecc7a3fb5889909fb6662ad78f0abb
 #         imagePullPolicy: Always
 #         resources:
 #           limits:
